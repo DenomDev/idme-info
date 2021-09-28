@@ -1,0 +1,10 @@
+<ng-container *ngIf="loaded">
+  <app-idme-autocomplete [suggestions]='services'
+    [allSuggestions]='allServices'
+    label="Services"
+    placeholder="New service..."
+    (inputValue)="onInput($event)"
+    (selectValue)="onSelect($event)"
+    (removeValue)="onRemove($event)">
+  </app-idme-autocomplete>
+</ng-container>

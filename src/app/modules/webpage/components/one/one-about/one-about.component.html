@@ -1,0 +1,18 @@
+<ng-container *ngIf="user; ">
+  <div fxLayout="row"
+    fxLayout.lt-md="column"
+    style="padding: 16px"
+    fxLayoutAlign="space-around stretch"
+    fxLayoutAlign.lt-md="center stretch">
+    <app-one-left fxFlex="48"
+      fxFlex.lt-md="100"
+      [user]="user"></app-one-left>
+    <app-one-right fxFlex="48"
+      fxFlex.lt-md="100"
+      [user]="user">
+    </app-one-right>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  loading...
+</ng-template>

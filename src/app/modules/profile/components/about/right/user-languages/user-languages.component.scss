@@ -1,0 +1,12 @@
+.user-languages {
+  &--action {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-button {
+      margin: 0;
+      position: absolute;
+    }
+  }
+}

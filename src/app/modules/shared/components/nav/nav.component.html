@@ -1,0 +1,33 @@
+<div [matMenuTriggerFor]="menu"
+  class="nav--logo corner-shape  clip-me ">
+  <app-idme-logo></app-idme-logo>
+</div>
+<mat-menu #menu="matMenu"
+  class="mat-menu corner-shape">
+  <ng-container *ngIf="user; else out">
+    <button mat-menu-item
+      (click)="profile();">
+      my profile</button>
+    <button mat-menu-item
+      (click)="webpage(user.username)">
+      my webpage</button>
+    <button mat-menu-item
+      (click)="cv(user.username)">
+      cv
+    </button>
+    <button mat-menu-item
+      disabled="true">
+      social cards
+    </button>
+    <button mat-menu-item
+      (click)="signout()">
+      sign out
+    </button>
+  </ng-container>
+  <ng-template #out>
+    <button mat-menu-item
+      (click)="signin()">
+      sign in
+    </button>
+  </ng-template>
+</mat-menu>

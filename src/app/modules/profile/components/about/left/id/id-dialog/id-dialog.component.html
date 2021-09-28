@@ -1,0 +1,115 @@
+<div class="idme-dialog">
+  <div class="idme-dialog--header">
+    <button mat-icon-button
+      (click)="onNoClick()"
+      class="idme-dialog--header-button"
+      color="primary">
+      <mat-icon class="material-icons-two-tone">arrow_backwards</mat-icon>
+    </button>
+    <h1 mat-dialog-title
+      class="idme-dialog--header-title">Profile info</h1>
+  </div>
+  <div mat-dialog-content
+    class="idme-dialog--content">
+    <ng-container *ngIf="user">
+      <form [formGroup]="profileForm"
+        class="idme-dialog--form"
+        id="profileForm"
+        (ngSubmit)="submit()"
+        autocomplete="off">
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Username</mat-label>
+            <input formControlName="username"
+              max-length="20"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!profileForm.get('username').valid && profileForm.get('username').touched">*Required</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Display Name</mat-label>
+            <input formControlName="displayName"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!profileForm.get('displayName').valid && profileForm.get('displayName').touched">*Required</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Contact Email</mat-label>
+            <input formControlName="contactEmail"
+              type="email"
+              maxlength="254"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!profileForm.get('contactEmail').valid && profileForm.get('contactEmail').touched">*Required</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Contact Phone</mat-label>
+            <input formControlName="contactPhone"
+              type="tel"
+              maxlength="20"
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Location</mat-label>
+            <input formControlName="location"
+              maxlength="20"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!profileForm.get('location').valid && profileForm.get('location').touched">*Required</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Birthday</mat-label>
+            <input formControlName="birthday"
+              maxlength="20"
+              type="date"
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description"
+              maxlength="400"
+              matInput></textarea>
+          </mat-form-field>
+        </div>
+
+      </form>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions
+    class="idme-dialog--actions">
+    <button mat-stroked-button
+      color="primary"
+      form="profileForm">Save</button>
+    <button mat-stroked-button
+      color="warn"
+      (click)="onNoClick()"
+      cdkFocusInitial>Discard</button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="languages">
+  <div *ngFor="let item of languages"
+    fxLayoutGap="16px grid"
+    fxLayout="row">
+    <div class="mat-subheading-2"
+      fxFlex="45"> {{item.language}}</div>
+    <div fxFlex="45">{{getLanguageLabel(item.level)}}</div>
+  </div>
+</div>

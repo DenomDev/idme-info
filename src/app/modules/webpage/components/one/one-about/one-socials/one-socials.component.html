@@ -1,0 +1,12 @@
+<ul class="social">
+  <ng-container *ngIf="socials.length>0">
+    <li *ngFor="let item of socials">
+      <a mat-icon-button
+        [href]="item.url">
+        <mat-icon class="material-icons-two-tone"
+          fontSet="fa"
+          [fontIcon]="'fa-' + item.type"></mat-icon>
+      </a>
+    </li>
+  </ng-container>
+</ul>

@@ -1,0 +1,59 @@
+<mat-expansion-panel
+  [ngClass]="{'idme-card-xp': true, 'corner-shape' : true, 'corner-shape__border': true, 'is-current': obj.current}">
+  <mat-expansion-panel-header collapsedHeight="100px"
+    class="idme-card-xp--header"
+    expandedHeight="90px">
+    <mat-panel-title>
+      <div>
+        <div class="idme-card-xp--header-title mat-subheading-2">
+          {{obj.name}}
+        </div>
+        <div class="idme-card-xp--header-subtitle mat-subheading-1">
+          {{obj.company}}
+        </div>
+      </div>
+    </mat-panel-title>
+    <mat-panel-description class="idme-card-xp--header-right">
+      <div class="idme-card-xp--header-description">
+        <div>
+          <span class="idme-card-xp--header-start_date mat-caption">
+            {{obj.startDate | date}}
+          </span>
+          <span class="idme-card-xp--header-end_date mat-caption"
+            *ngIf="!obj.current && obj.endDate">
+            - {{obj.endDate | date}}
+          </span>
+          <span *ngIf="obj.current"
+            class="idme-card-xp--header-current mat-caption">
+            Current
+          </span>
+        </div>
+        <div>
+          <div class="idme-card-xp--header-location mat-subheading-1">
+            {{obj.location}}
+          </div>
+        </div>
+      </div>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="idme-card-xp--skills">
+    <mat-chip-list>
+      <mat-chip *ngFor="let item of obj.skills"
+        class="idme-card-xp--skills-skill">{{item.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="idme-card-xp--description mat-body-2">
+    {{obj.description}}
+  </div>
+  <div class="idme-card-xp--description-links"
+    *ngIf="obj.links">
+    <div *ngIf="obj.links.length > 0">Realizations</div>
+    <div class="idme-card-xp--description-links-link"
+      *ngFor="let item of obj.links">
+      <a m-button
+        [href]="item.url">{{item.name}}</a>
+      <span *ngIf="item.desc"> - {{item.desc}}</span>
+    </div>
+  </div>
+</mat-expansion-panel>

@@ -1,0 +1,82 @@
+<mat-accordion displayMode="default"
+  class="corner-shape corner-shape__border idme-card-exp">
+  <mat-expansion-panel [expanded]="step === 0"
+    class="idme-card-xp corner-shape corner-shape__border "
+    (opened)="setStep(0)"
+    hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="idme-card-xp--header-title">
+          Services
+        </span>
+      </mat-panel-title>
+      <mat-panel-description class="idme-card-xp--header-right">
+        <div class="idme-card-xp--header-description">
+          <span>Services you offer</span>
+          <mat-icon class="material-icons-two-tone">work</mat-icon>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-one-services [services]="user.services"></app-one-services>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 1"
+    class="idme-card-xp corner-shape corner-shape__border "
+    (opened)="setStep(1)"
+    hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="idme-card-xp--header-title">
+          Specializations
+        </span>
+      </mat-panel-title>
+      <mat-panel-description class="idme-card-xp--header-right">
+        <div class="idme-card-xp--header-description">
+          <span>Your main specializations</span>
+          <mat-icon class="material-icons-two-tone">star</mat-icon>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-one-specializations [specializations]="user.specializations">
+    </app-one-specializations>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 2"
+    class="idme-card-xp corner-shape corner-shape__border "
+    (opened)="setStep(2)"
+    hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="idme-card-xp--header-title">
+          Skills
+        </span>
+      </mat-panel-title>
+      <mat-panel-description class="idme-card-xp--header-right">
+        <div class="idme-card-xp--header-description">
+          <span>Your various skills
+          </span>
+          <mat-icon class="material-icons-two-tone">how_to_reg</mat-icon>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-one-skills [skills]="user.skills"></app-one-skills>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 3"
+    class="idme-card-xp corner-shape corner-shape__border "
+    (opened)="setStep(3)"
+    hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="idme-card-xp--header-title">
+          Languages
+        </span>
+      </mat-panel-title>
+      <mat-panel-description class="idme-card-xp--header-right">
+        <div class="idme-card-xp--header-description">
+          <span>Languages you speak and your level
+          </span>
+          <mat-icon class="material-icons-two-tone">translate</mat-icon>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-one-languages [languages]="user.languages"></app-one-languages>
+  </mat-expansion-panel>
+</mat-accordion>

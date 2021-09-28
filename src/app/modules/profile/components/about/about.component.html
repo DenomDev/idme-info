@@ -1,0 +1,16 @@
+<ng-container *ngIf="user; ">
+  <div fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="space-around stretch"
+    fxLayoutAlign.lt-md="center stretch">
+    <app-left fxFlex="48"
+      [user]="user"></app-left>
+    <app-right fxFlex="48"
+      [user]="user">
+    </app-right>
+  </div>
+
+</ng-container>
+<ng-template #elseTemplate>
+  loading...
+</ng-template>

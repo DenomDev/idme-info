@@ -1,0 +1,59 @@
+.id {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40vh;
+  box-shadow: none;
+  background: transparent;
+  margin-top: -20px;
+  &--info {
+    padding: 24px;
+  }
+  &--pic {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -75px;
+    margin-top: -75px !important;
+
+    &-edit {
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0px 8px 10px -5px rgba(21, 241, 230, 0.2),
+        0px 16px 24px 2px rgba(21, 241, 230, 0.12),
+        0px 6px 30px 5px rgba(21, 241, 230, 0.15);
+      .id--pic-edit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        color: white;
+      }
+    }
+  }
+
+  &--name {
+    padding-top: 70px;
+  }
+  &--spe {
+    margin-top: 1em;
+    display: flex;
+    span {
+      margin: 0.5em;
+    }
+  }
+  &--location {
+    margin-top: 1em;
+  }
+
+  input {
+    display: none;
+  }
+}

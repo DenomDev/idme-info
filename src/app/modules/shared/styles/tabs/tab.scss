@@ -1,0 +1,25 @@
+// .idme-toolbar {
+//   position: sticky;
+//   position: -webkit-sticky; /* For macOS/iOS Safari */
+//   top: 0; /* Sets the sticky toolbar to be on top */
+//   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+// }
+// .tab {
+//   &-label {
+//     padding-left: 8px;
+//     font-size: 0.875rem;
+//     font-weight: 500;
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     font-family: 'Montserrat', sans-serif;
+//     letter-spacing: 0.08em;
+//   }
+// }
+// ::ng-deep .mat-tab-label.mat-tab-label-active {
+//   opacity: 1;
+//   .tab-label,
+//   .tab-icon {
+//     // color: #250d66;
+//     opacity: 1;
+//   }
+// }

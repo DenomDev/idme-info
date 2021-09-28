@@ -1,0 +1,25 @@
+<ul class="social">
+  <ng-container *ngIf="links.length>0; else elseTemplate">
+    <li *ngFor="let item of links">
+      <a mat-icon-button
+        [href]="item.url">
+        <mat-icon class="material-icons-two-tone"
+          fontSet="fa"
+          [fontIcon]="'fa-' + item.type"></mat-icon>
+      </a>
+    </li>
+    <li>
+      <button mat-icon-button
+        (click)="openSocialDialog()">
+        <mat-icon class="material-icons-two-tone">add</mat-icon>
+      </button>
+    </li>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button mat-stroked-button
+      color="primary"
+      (click)="openSocialDialog()">
+      add links
+    </button>
+  </ng-template>
+</ul>

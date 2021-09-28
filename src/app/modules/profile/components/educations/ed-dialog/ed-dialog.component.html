@@ -1,0 +1,115 @@
+<div class="idme-dialog">
+  <div class="idme-dialog--header">
+    <button mat-icon-button
+      (click)="onNoClick()"
+      class="idme-dialog--header-button"
+      color="primary">
+      <mat-icon class="material-icons-two-tone">arrow_backwards</mat-icon>
+    </button>
+    <h1 mat-dialog-title
+      class="idme-dialog--header-title">Education edit</h1>
+  </div>
+  <div mat-dialog-content
+    class="idme-dialog--content">
+    <ng-container *ngIf="education">
+      <form [formGroup]="xpForm"
+        class="idme-dialog--form"
+        (ngSubmit)="submitHandler()">
+        <div class="idme-dialog--form-line">
+          <mat-button-toggle-group name="fontStyle"
+            class="idme-dialog--form-type"
+            formControlName="type"
+            aria-label="Education type">
+            <mat-button-toggle *ngFor="let element of types"
+              [checked]="element.selected"
+              [value]="element.value">{{element.viewValue}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Name</mat-label>
+            <input formControlName="name"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!xpForm.get('name').valid && xpForm.get('name').touched">Please
+                enter the education name.</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline">
+            <mat-label>Institution</mat-label>
+            <input formControlName="institution"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!xpForm.get('institution').valid && xpForm.get('institution').touched">Please
+                enter the institution name.</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <input formControlName="location"
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-slide-toggle formControlName="hasDate"> has date
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="current"
+            type="button">present</mat-slide-toggle>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field *ngIf="xpForm.value.hasDate"
+            appearance="outline">
+            <mat-label>Start date</mat-label>
+            <input formControlName="startDate"
+              type="month"
+              matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline"
+            *ngIf="xpForm.value.hasDate && !xpForm.value.current ">
+            <input formControlName="endDate"
+              type="month"
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+              formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="idme-dialog--form-line mat.mat-subheading-2">
+          Developed skills
+        </div>
+        <div class="idme-dialog--form-line">
+          <app-idme-autocomplete [suggestions]='skills'
+            [allSuggestions]='allSkills'
+            label="Skills"
+            placeholder="Add skill..."
+            (inputValue)="onInput($event)"
+            (selectValue)="onSelect($event)"
+            (removeValue)="onRemove($event)">
+          </app-idme-autocomplete>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions
+    class="idme-dialog--actions">
+    <button mat-flat-button
+      color="accent"
+      (click)="submitHandler()">Save</button>
+    <button mat-stroked-button
+      color="warn"
+      (click)="onNoClick()"
+      cdkFocusInitial>Discard</button>
+  </div>
+</div>

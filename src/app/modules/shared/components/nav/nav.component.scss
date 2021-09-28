@@ -1,0 +1,29 @@
+.nav {
+  background: white;
+  &--logo {
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 56px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.corner-shape {
+      &:before {
+        clip-path: polygon(
+          0% 0px,
+          10px 0%,
+          calc(100% - 10px) 0%,
+          100% 0px,
+          100% calc(100% - 10px),
+          calc(100% - 10px) 100%,
+          0px 100%,
+          0% calc(100% - 10px)
+        );
+      }
+    }
+  }
+}

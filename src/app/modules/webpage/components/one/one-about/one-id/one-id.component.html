@@ -1,0 +1,36 @@
+<mat-card class="id corner-shape corner-shape__border">
+  <div class="id--pic "
+    [ngStyle]="{'background-image': 'url(' + user.photoURL + ')'}">
+  </div>
+  <div class="id--info">
+    <div class="id--name mat-title">{{user.displayName}} </div>
+    <div *ngIf="user.location "
+      class="id--location mat-subheading-2">
+      <mat-icon class="material-icons-two-tone"
+        inline
+        fontSet="fa"
+        fontIcon="fa-map-marker"></mat-icon>
+      {{user.location}}
+    </div>
+    <div *ngIf="user.contactPhone"
+      class="id--phone mat-subheading-2">
+      <mat-icon class="material-icons-two-tone"
+        inline>phone</mat-icon>
+      {{user.contactPhone}}
+    </div>
+    <div *ngIf="user.contactEmail"
+      class="id--email mat-subheading-2">
+      <mat-icon class="material-icons-two-tone"
+        inline
+        fontSet="fa"
+        fontIcon="fa-at"></mat-icon>
+      {{user.contactEmail}}
+    </div>
+    <div *ngIf="user.description"
+      class="id--desc mat-subheading-1">
+      {{user.description}}
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <app-one-socials [socials]="user.links"></app-one-socials>
+</mat-card>

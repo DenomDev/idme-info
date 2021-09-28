@@ -1,0 +1,30 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{label}}</mat-label>
+  <mat-chip-list #chipList
+    aria-label="Suggestion selection">
+    <mat-chip *ngFor="let suggestion of suggestions"
+      [selectable]="selectable"
+      [removable]="removable"
+      (removed)="remove(suggestion)">
+      {{suggestion.name}}
+      <mat-icon class="material-icons-two-tone"
+        matChipRemove
+        *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+  <input [placeholder]="placeholder"
+    #suggestionInput
+    [formControl]="suggestionCtrl"
+    [matAutocomplete]="auto"
+    [matChipInputFor]="chipList"
+    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+    [matChipInputAddOnBlur]="addOnBlur"
+    (matChipInputTokenEnd)="add($event)">
+  <mat-autocomplete #auto="matAutocomplete"
+    (optionSelected)="selected($event)">
+    <mat-option *ngFor="let suggestion  of filteredSuggestions | async"
+      [value]="suggestion">
+      {{suggestion.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

@@ -1,0 +1,324 @@
+<app-nav></app-nav>
+<ng-container *ngIf="user">
+  <div id="cv"
+    class="instaFade">
+
+    <div class="mainDetails">
+      <div id="headshot"
+        class="quickFade">
+        <img src="{{user.photoURL}}"
+          alt="Alan Smith" />
+      </div>
+      <div id="name">
+        <h1 class="quickFade delayTwo">{{user.displayName}}</h1>
+        <h2 class="quickFade delayThree"><span
+            *ngFor="let item of user.specializations">{{item.name}} </span>
+        </h2>
+        <h3 class="location"><span>
+            <mat-icon inline
+              fontSet="fa"
+              fontIcon="fa-map-marker"></mat-icon>{{user.location}}
+          </span>
+        </h3>
+
+      </div>
+      <div id="contactDetails"
+        class="quickFade delayFour">
+        <ul>
+          <ng-container *ngIf="user.contactEmail">
+            <li><a href="mailto:{{user.contactEmail}}"
+                target="_blank">{{user.contactEmail}}</a></li>
+          </ng-container>
+
+          <ng-container *ngIf="user.contactPhone">
+            <li><a href="tel:{{user.contactPhone}}"
+                target="_blank">{{user.contactPhone}}</a></li>
+          </ng-container>
+          <hr>
+          <ng-container *ngIf="user.username">
+            <li>
+              <div>full profile on </div>
+              <div class="idme-link">
+                <a href="http://idme.info/{{user.username}}">
+                  http://idme.info/{{user.username}}</a>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="mainArea"
+      class="quickFade delayFive">
+      <section>
+        <div class="sectionTitle">
+          <h1>Work Experience</h1>
+        </div>
+        <div class="sectionContent">
+          <h2 class="section-subtitle">Jobs</h2>
+          <ng-container *ngFor="let item of jobs">
+            <article *ngIf="item.type==='job'">
+              <h2>{{item.name}}</h2>
+              <p class="subDetails">
+                <ng-container *ngIf="item.company">{{item.company}}.
+                </ng-container>
+                <ng-container *ngIf="item.hasDate">{{item.startDate}} -
+                </ng-container>
+                <ng-container
+                  *ngIf="item.current && item.hasDate; else hasEndDate">
+                  Present
+                </ng-container>
+                <ng-template #hasEndDate>
+                  {{item.endDate}}
+                </ng-template>
+              </p>
+              <p *ngIf="item.description">{{item.description}}</p>
+              <div class="skills"
+                *ngIf="item.skills">
+                <span
+                  *ngFor="let itemSkill of item.skills">{{itemSkill.name}}</span>
+              </div>
+
+
+              <div *ngIf="item.links"
+                class="xp-links">
+                <div *ngIf="item.links.length > 0">some realisations</div>
+                <div *ngFor="let l of item.links">
+                  <a class="link"
+                    [href]="l.url"
+                    *ngIf="l.url">{{l.url }}</a>
+                  <span class="link-desc"
+                    *ngIf="l.desc"> - {{l.desc}}</span>
+                </div>
+              </div>
+
+            </article>
+          </ng-container>
+
+          <h2 class="section-subtitle">Projects</h2>
+          <ng-container *ngFor="let item of projects">
+            <article *ngIf="item.type==='project'">
+              <h2>{{item.name}}</h2>
+              <p class="subDetails">
+                <ng-container *ngIf="item.company">{{item.company}}.
+                </ng-container>
+                <ng-container *ngIf="item.hasDate">{{item.startDate}} -
+                </ng-container>
+                <ng-container
+                  *ngIf="item.current && item.hasDate; else hasEndDate">
+                  Present
+                </ng-container>
+                <ng-template #hasEndDate>
+                  {{item.endDate}}
+                </ng-template>
+              </p>
+              <p *ngIf="item.description">{{item.description}}</p>
+              <div class="skills"
+                *ngIf="item.skills">
+                <span
+                  *ngFor="let itemSkill of item.skills">{{itemSkill.name}}</span>
+              </div>
+
+
+              <div *ngIf="item.links"
+                class="xp-links">
+                <div *ngIf="item.links.length > 0">some realisations</div>
+                <div *ngFor="let l of item.links">
+                  <a class="link"
+                    [href]="l.url"
+                    *ngIf="l.url">{{l.url }}</a>
+                  <span class="link-desc"
+                    *ngIf="l.desc"> - {{l.desc}}</span>
+                </div>
+              </div>
+
+            </article>
+          </ng-container>
+
+          <h2 class="section-subtitle">Internships</h2>
+          <ng-container *ngFor="let item of internships">
+            <article *ngIf="item.type==='internship'">
+              <h2>{{item.name}}</h2>
+              <p class="subDetails">
+                <ng-container *ngIf="item.company">{{item.company}}.
+                </ng-container>
+                <ng-container *ngIf="item.hasDate">{{item.startDate}} -
+                </ng-container>
+                <ng-container
+                  *ngIf="item.current && item.hasDate; else hasEndDate">
+                  Present
+                </ng-container>
+                <ng-template #hasEndDate>
+                  {{item.endDate}}
+                </ng-template>
+              </p>
+              <p *ngIf="item.description">{{item.description}}</p>
+              <div class="skills"
+                *ngIf="item.skills">
+                <span
+                  *ngFor="let itemSkill of item.skills">{{itemSkill.name}}</span>
+              </div>
+
+
+              <div *ngIf="item.links"
+                class="xp-links">
+                <div *ngIf="item.links.length > 0">some realisations</div>
+                <div *ngFor="let l of item.links">
+                  <a class="link"
+                    [href]="l.url"
+                    *ngIf="l.url">{{l.url }}</a>
+                  <span class="link-desc"
+                    *ngIf="l.desc"> - {{l.desc}}</span>
+                </div>
+              </div>
+
+            </article>
+          </ng-container>
+          <h2 class="section-subtitle">Student jobs</h2>
+          <ng-container *ngFor="let item of studentJobs">
+            <article *ngIf="item.type==='student-job'">
+              <h2>{{item.name}}</h2>
+              <p class="subDetails">
+                <ng-container *ngIf="item.company">{{item.company}}.
+                </ng-container>
+                <ng-container *ngIf="item.hasDate">{{item.startDate}} -
+                </ng-container>
+                <ng-container
+                  *ngIf="item.current && item.hasDate; else hasEndDate">
+                  Present
+                </ng-container>
+                <ng-template #hasEndDate>
+                  {{item.endDate}}
+                </ng-template>
+              </p>
+              <p *ngIf="item.description">{{item.description}}</p>
+              <div class="skills"
+                *ngIf="item.skills">
+                <span
+                  *ngFor="let itemSkill of item.skills">{{itemSkill.name}}</span>
+              </div>
+
+
+              <div *ngIf="item.links"
+                class="xp-links">
+                <div *ngIf="item.links.length > 0">some realisations</div>
+                <div *ngFor="let l of item.links">
+                  <a class="link"
+                    [href]="l.url"
+                    *ngIf="l.url">{{l.url }}</a>
+                  <span class="link-desc"
+                    *ngIf="l.desc"> - {{l.desc}}</span>
+                </div>
+              </div>
+
+            </article>
+          </ng-container>
+
+          <h2 class="section-subtitle">Volunteer work</h2>
+          <ng-container *ngFor="let item of volunteerWorks">
+            <article *ngIf="item.type==='volunteer-work'">
+              <h2>{{item.name}}</h2>
+              <p class="subDetails">
+                <ng-container *ngIf="item.company">{{item.company}}.
+                </ng-container>
+                <ng-container *ngIf="item.hasDate">{{item.startDate}} -
+                </ng-container>
+                <ng-container
+                  *ngIf="item.current && item.hasDate; else hasEndDate">
+                  Present
+                </ng-container>
+                <ng-template #hasEndDate>
+                  {{item.endDate}}
+                </ng-template>
+              </p>
+              <p *ngIf="item.description">{{item.description}}</p>
+              <div class="skills"
+                *ngIf="item.skills">
+                <span
+                  *ngFor="let itemSkill of item.skills">{{itemSkill.name}}</span>
+              </div>
+
+
+              <div *ngIf="item.links"
+                class="xp-links">
+                <div *ngIf="item.links.length > 0">some realisations</div>
+                <div *ngFor="let l of item.links">
+                  <a class="link"
+                    [href]="l.url"
+                    *ngIf="l.url">{{l.url }}</a>
+                  <span class="link-desc"
+                    *ngIf="l.desc"> - {{l.desc}}</span>
+                </div>
+              </div>
+
+            </article>
+          </ng-container>
+
+        </div>
+        <div class="clear"></div>
+      </section>
+
+
+
+
+
+
+      <section>
+        <div class="sectionTitle">
+          <h1>Education</h1>
+        </div>
+        <div class="sectionContent">
+          <ng-container *ngFor="let item of educations">
+            <article>
+              <h2>{{item.name}} - {{item.type}}</h2>
+              <p class="subDetails">{{item.institution}}. {{item.startDate}} -
+                {{item.endDate}}</p>
+              <p *ngIf="item.description">{{item.description}}</p>
+              <div class="skills">
+                <span
+                  *ngFor="let itemSkill of item.skills">{{itemSkill.name}}</span>
+              </div>
+            </article>
+          </ng-container>
+        </div>
+        <div class="clear"></div>
+      </section>
+      <section>
+        <div class="sectionTitle">
+          <h1>Languages</h1>
+        </div>
+        <div class="sectionContent">
+          <p class="quickFade delayThree languages"><span
+              *ngFor="let item of user.languages"><span
+                class="idme-link">{{item.language}} </span>-
+              <ng-container *ngIf="item.level === '1'">
+                Elementary
+              </ng-container>
+              <ng-container *ngIf="item.level === '2'">
+                Limited working
+              </ng-container>
+              <ng-container *ngIf="item.level === '3'">
+                Professional working
+              </ng-container>
+              <ng-container *ngIf="item.level === '4'">
+                Full professional
+              </ng-container>
+              <ng-container *ngIf="item.level === '5'">
+                Native or bilingual
+              </ng-container>
+            </span>
+          </p>
+        </div>
+        <div class="clear"></div>
+      </section>
+    </div>
+  </div>
+  <div id="bgcv"></div>
+
+</ng-container>
+
+<button mat-fab
+  class="idme-fab idme-fab__experience"
+  (click)="print()">
+  <mat-icon class="idme-fab__icon">print</mat-icon>
+</button>

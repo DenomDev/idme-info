@@ -1,0 +1,41 @@
+::ng-deep {
+  .wideweb-tabs .mat-tab-header {
+    z-index: 100;
+    right: 0;
+    left: 0;
+    position: fixed !important;
+  }
+  .mat-tab-header {
+    background: white;
+  }
+
+  .is-phone {
+    .wideweb-tabs .mat-tab-header {
+      background: #efefef;
+      bottom: 0;
+    }
+    .wideweb-tabs .mat-tab-body {
+      margin-bottom: 100px;
+    }
+    .wideweb-tabs .mat-tab-labels {
+      justify-content: center !important;
+    }
+    app-one-background {
+      margin-top: -100px;
+    }
+  }
+  .is-tablet,
+  .is-desktop,
+  .is-xl {
+    .wideweb-tabs .mat-tab-header {
+      top: 0;
+    }
+    .wideweb-tabs .mat-tab-body {
+      margin-top: 56px;
+    }
+  }
+  .mat-tab-group.mat-primary .mat-ink-bar,
+  .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: var(--accent-darker-color);
+  }
+}

@@ -1,0 +1,19 @@
+::ng-deep {
+  .profile {
+    &.is-phone {
+      display: flex;
+      flex-direction: column-reverse;
+      .mat-tab-header {
+        position: fixed !important;
+        background: #efefef;
+        z-index: 100;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        .mat-tab-links {
+          justify-content: center !important;
+        }
+      }
+    }
+  }
+}

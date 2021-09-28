@@ -1,0 +1,10 @@
+<ng-container *ngIf="loaded">
+  <app-idme-autocomplete [suggestions]='specializations'
+    [allSuggestions]='allSpecializations'
+    label="Specializations"
+    placeholder="New specialization..."
+    (inputValue)="onInput($event)"
+    (selectValue)="onSelect($event)"
+    (removeValue)="onRemove($event)">
+  </app-idme-autocomplete>
+</ng-container>

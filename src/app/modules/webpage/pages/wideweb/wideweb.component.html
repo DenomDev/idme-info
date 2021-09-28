@@ -1,0 +1,50 @@
+<div
+  [ngClass.lt-md]="{'is-phone': true, 'is-tablet': false, 'is-desktop': false,'is-xl': false}"
+  [ngClass.md]="{'is-phone': false, 'is-tablet': true, 'is-desktop': false,'is-xl': false}"
+  [ngClass.lg]="{'is-phone': false, 'is-tablet': false, 'is-desktop': true,'is-xl': false}"
+  [ngClass.xl]="{'is-phone': false, 'is-tablet': false, 'is-desktop': false,'is-xl': true}"
+  class="wideweb">
+
+  <app-nav></app-nav>
+  <mat-tab-group mat-align-tabs="end"
+    [ngClass.lt-md]="{'mat-tab-group-inverted-header': true}"
+    [ngClass]="{'mat-tab-group-inverted-header': false}"
+    class="wideweb-tabs"
+    *ngIf="user"
+    animationDuration="0ms">
+    <mat-tab label="About">
+      <ng-template mat-tab-label>
+        <mat-icon fxShow.lt-md
+          fxHide
+          fxHideclass="example-tab-icon">face</mat-icon>
+        <span fxShow
+          fxHide.lt-md>About</span>
+      </ng-template>
+      <app-one-about [user]="user"></app-one-about>
+    </mat-tab>
+    <mat-tab label="Experience">
+      <ng-template mat-tab-label>
+        <mat-icon fxShow.lt-md
+          fxHide
+          class="example-tab-icon">work</mat-icon>
+        <span fxShow
+          fxHide.lt-md>Experience</span>
+      </ng-template>
+      <app-one-experiences *ngIf="user"
+        [user]="user">
+      </app-one-experiences>
+    </mat-tab>
+    <mat-tab label="Education"
+      *ngIf="educations">
+      <ng-template mat-tab-label>
+        <mat-icon fxShow.lt-md
+          fxHide
+          class="example-tab-icon">book</mat-icon>
+        <span fxShow
+          fxHide.lt-md>Education</span>
+      </ng-template>
+      <app-one-educations *ngIf="user"
+        [user]="user"></app-one-educations>
+    </mat-tab>
+  </mat-tab-group>
+</div>

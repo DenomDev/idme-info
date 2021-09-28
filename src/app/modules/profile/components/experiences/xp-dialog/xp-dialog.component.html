@@ -1,0 +1,158 @@
+<div class="idme-dialog">
+  <div class="idme-dialog--header">
+    <button mat-icon-button
+      (click)="onNoClick()"
+      class="idme-dialog--header-button"
+      color="primary">
+      <mat-icon class="material-icons-two-tone">arrow_backwards</mat-icon>
+    </button>
+    <h1 mat-dialog-title
+      class="idme-dialog--header-title mat-title">Experience edit</h1>
+  </div>
+  <div mat-dialog-content
+    class="idme-dialog--content">
+    <ng-container *ngIf="experience">
+      <form [formGroup]="xpForm"
+        class="idme-dialog--form"
+        (ngSubmit)="submitHandler()">
+        <div class="idme-dialog--form-line">
+          <mat-button-toggle-group name="fontStyle"
+            class="idme-dialog--form-type"
+            formControlName="type"
+            aria-label="Experience type">
+            <mat-button-toggle *ngFor="let element of types"
+              [checked]="element.selected"
+              [value]="element.value">{{element.viewValue}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Name</mat-label>
+            <input formControlName="name"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!xpForm.get('name').valid && xpForm.get('name').touched">Please
+                enter the experience name.</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline">
+            <mat-label>Company</mat-label>
+            <input formControlName="company"
+              matInput>
+            <mat-error>
+              <span
+                *ngIf="!xpForm.get('company').valid && xpForm.get('company').touched">Please
+                enter the company name.</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <input formControlName="location"
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-slide-toggle formControlName="hasDate"> has date
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="current"
+            type="button">present</mat-slide-toggle>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field *ngIf="xpForm.value.hasDate"
+            appearance="outline">
+            <mat-label>Start date</mat-label>
+            <input formControlName="startDate"
+              type="month"
+              matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline"
+            *ngIf="xpForm.value.hasDate && !xpForm.value.current ">
+            <input formControlName="endDate"
+              type="month"
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline"
+            class="idme-dialog--form-single">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+              formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line mat-subheading-2">
+          <div>Eventual links</div>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline">
+            <mat-label>Link</mat-label>
+            <input #linksInput
+              matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input #linksNameInput
+              matInput>
+          </mat-form-field>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input #linksDescInput
+              matInput>
+          </mat-form-field>
+          <button mat-icon-button
+            color="primary"
+            [disabled]="!linksInput.value && !linksNameInput"
+            (click)="addLink(linksInput.value, linksNameInput.value, linksDescInput.value); linksInput.value='';
+                            linksNameInput.value = ''; linksDescInput.value = ''"
+            type="button">
+            <mat-icon class="material-icons-two-tone">add</mat-icon>
+          </button>
+        </div>
+        <div class="idme-dialog--form-line">
+          <mat-chip-list class="idme-dialog--form-chips"
+            input
+            formArrayName="links"
+            outlined>
+            <mat-chip *ngFor="let lks of linksForms.value; let i = index;"
+              secondary>
+              {{lks.name}} - {{lks.url}} - {{lks.desc}}
+              <mat-icon class="material-icons-two-tone"
+                (click)="deleteLink(i)"
+                trailing>cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+        <div class="idme-dialog--form-line mat-subheading-2">
+          Developed skills
+        </div>
+        <div class="idme-dialog--form-line">
+          <app-idme-autocomplete [suggestions]='skills'
+            [allSuggestions]='allSkills'
+            label="Skills"
+            placeholder="Add skill..."
+            (inputValue)="onInput($event)"
+            (selectValue)="onSelect($event)"
+            (removeValue)="onRemove($event)">
+          </app-idme-autocomplete>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions
+    class="idme-dialog--actions">
+    <button mat-flat-button
+      color="accent"
+      (click)="submitHandler()">Save</button>
+    <button mat-stroked-button
+      color="warn"
+      (click)="onNoClick()"
+      cdkFocusInitial>Discard</button>
+  </div>
+</div>

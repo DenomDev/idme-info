@@ -1,0 +1,75 @@
+<div class="idme-dialog">
+  <div class="idme-dialog--header">
+    <button mat-icon-button
+      (click)="close()"
+      class="idme-dialog--header-button"
+      color="primary">
+      <mat-icon class="material-icons-two-tone">arrow_backwards</mat-icon>
+    </button>
+    <h1 mat-dialog-title
+      class="idme-dialog--header-title">Social links</h1>
+  </div>
+  <div mat-dialog-content
+    class="idme-dialog--content">
+    <ng-container *ngIf="data">
+      <div class="idme-dialog--form">
+        <div class="idme-dialog--form-line ">
+          <mat-form-field appearance="outline">
+            <mat-label>URL</mat-label>
+            <input matInput
+              type="url"
+              #link>
+          </mat-form-field>
+          <mat-button-toggle-group #group="matButtonToggleGroup"
+            selected="0"
+            title="type">
+            <mat-button-toggle
+              *ngFor="let item of availableTypes; let i = index;"
+              [checked]="item.selected"
+              [value]="item"
+              aria-label="Text align left">
+              <mat-icon fontSet="fa"
+                [fontIcon]="item.icon"></mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <button mat-mini-fab
+            color="accent"
+            style="margin-left: auto"
+            [disabled]="!link.value"
+            (click)="addSocial(link.value,group.value); link.value = '';"
+            aria-label="add link">
+            <mat-icon class="material-icons-two-tone">add</mat-icon>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="idme-dialog--form-line">
+          <mat-chip-list input
+            outlined>
+            <mat-chip *ngFor="let item of userSocials; let i = index;"
+              [value]="link">
+              <mat-icon class="material-icons-two-tone"
+                fontSet="fa"
+                [fontIcon]="'fa-' + item.type"
+                leading></mat-icon>
+              {{item.url}}
+              <mat-icon class="material-icons-two-tone"
+                (click)="onRemove(i)"
+                trailing>cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions
+    class="idme-dialog--actions">
+    <button mat-stroked-button
+      color="primary"
+      (click)="submit()">Save</button>
+    <button mat-stroked-button
+      color="warn"
+      (click)="close()"
+      cdkFocusInitial>Discard</button>
+  </div>

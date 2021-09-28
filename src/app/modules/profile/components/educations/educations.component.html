@@ -1,0 +1,32 @@
+<ng-container *ngIf="educations;">
+  <div *ngIf="educations.length>0;  else elseTemplate"
+    class="xp-grid"
+    fxLayout="row wrap"
+    fxLayout.lt-md="column"
+    fxLayoutGap="16px grid"
+    fxLayoutAlign="start start"
+    fxLayoutAlign.lt-md="center stretch">
+    <app-ed fxFlex.lt-md="100"
+      fxFlex.md="50"
+      fxFlex.lg="33.33"
+      fxFlex.xl="25"
+      *ngFor="let item of educations"
+      (editEd)="editEdu($event)"
+      [obj]="item"></app-ed>
+  </div>
+  <button mat-fab
+    class="idme-fab idme-fab__experience"
+    (click)="openDialog()">
+    <mat-icon class="idme-fab__icon">add</mat-icon>
+  </button>
+  <ng-template #elseTemplate>
+    <div class="big-button">
+      You didnt registered any educations yet
+      <button mat-stroked-button
+        color="primary"
+        (click)="openDialog()">
+        Add new item
+      </button>
+    </div>
+  </ng-template>
+</ng-container>

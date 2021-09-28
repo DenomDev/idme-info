@@ -1,0 +1,51 @@
+<mat-card class="id corner-shape corner-shape__border">
+  <input type="file"
+    (change)="onFileChanged($event)"
+    #imgInput />
+  <div class="id--pic "
+    (click)="imgInput.click()"
+    [ngStyle]="{'background-image': 'url(' + imagePreview + ')'}">
+    <button mat-icon-button
+      class="id--pic-edit"
+      (click)="imgInput.click()">
+      <mat-icon class="material-icons-two-tone">edit</mat-icon>
+    </button>
+  </div>
+  <div class="id--info">
+    <div class="id--name mat-title">{{user.displayName}} </div>
+    <div *ngIf="user.location "
+      class="id--location mat-subheading-2">
+      <mat-icon class="material-icons-two-tone"
+        inline
+        fontSet="fa"
+        fontIcon="fa-map-marker"></mat-icon>
+      {{user.location}}
+    </div>
+    <div *ngIf="user.contactPhone"
+      class="id--phone mat-subheading-2">
+      <mat-icon class="material-icons-two-tone"
+        inline>phone</mat-icon>
+      {{user.contactPhone}}
+    </div>
+    <div *ngIf="user.contactEmail"
+      class="id--email mat-subheading-2">
+      <mat-icon class="material-icons-two-tone"
+        inline
+        fontSet="fa"
+        fontIcon="fa-at"></mat-icon>
+      {{user.contactEmail}}
+    </div>
+    <div *ngIf="user.description"
+      class="id--desc mat-subheading-1">
+      {{user.description}}
+    </div>
+  </div>
+  <div class="spacer"></div>
+
+  <app-social [links]="user.links"></app-social>
+</mat-card>
+<button mat-fab
+  class="idme-fab idme-fab__experience"
+  (click)="openIdForm()">
+  <mat-icon class="idme-fab__icon">edit</mat-icon>
+</button>

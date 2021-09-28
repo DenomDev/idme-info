@@ -1,0 +1,12 @@
+<div class="bg"
+  [ngStyle]="{'background-image': 'url(' + bgPreview + ')'}"
+  (click)="bgInput.click()">
+  <button mat-icon-button
+    raised
+    class="bg--edit">
+    <mat-icon class="material-icons-two-tone">edit</mat-icon>
+  </button>
+  <input type="file"
+    (change)="onBgChanged($event)"
+    #bgInput />
+</div>

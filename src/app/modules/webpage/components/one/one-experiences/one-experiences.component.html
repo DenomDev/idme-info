@@ -1,0 +1,122 @@
+<ng-container *ngIf="jobs;">
+  <ng-container *ngIf="jobs.length>0;">
+    <h4 class="mat-title">Jobs</h4>
+    <div class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-xp fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of jobs"
+        [obj]="item"></app-one-xp>
+    </div>
+    <ng-template #elseTemplate>
+
+    </ng-template>
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>
+
+
+
+
+
+<ng-container *ngIf="projects;">
+  <ng-container *ngIf="projects.length>0;">
+    <h4 class="mat-title">projects</h4>
+    <div class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-xp fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of projects"
+        [obj]="item"></app-one-xp>
+    </div>
+    <ng-template #elseTemplate>
+
+    </ng-template>
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>
+
+
+<ng-container *ngIf="internships;">
+  <ng-container *ngIf="internships.length>0;">
+    <h4 class="mat-title">internships</h4>
+    <div class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-xp fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of internships"
+        [obj]="item"></app-one-xp>
+    </div>
+    <ng-template #elseTemplate>
+
+    </ng-template>
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>
+
+
+<ng-container *ngIf="studentJobs;">
+  <ng-container *ngIf="studentJobs.length>0;">
+    <h4 class="mat-title">student jobs</h4>
+    <div class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-xp fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of studentJobs"
+        [obj]="item"></app-one-xp>
+    </div>
+    <ng-template #elseTemplate>
+
+    </ng-template>
+    <mat-divider></mat-divider>
+
+  </ng-container>
+</ng-container>
+
+
+<ng-container *ngIf="volunteerWorks;">
+  <ng-container *ngIf="volunteerWorks.length>0;">
+    <h4 class="mat-title">volunteer work</h4>
+    <div class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-xp fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of volunteerWorks"
+        [obj]="item"></app-one-xp>
+    </div>
+    <ng-template #elseTemplate>
+
+    </ng-template>
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>

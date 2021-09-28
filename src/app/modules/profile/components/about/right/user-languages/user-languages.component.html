@@ -1,0 +1,49 @@
+<div *ngIf="languages">
+  <div *ngFor="let item of languages"
+    fxLayoutGap="16px grid"
+    fxLayout="row">
+    <div class="mat-subheading-2"
+      fxFlex="45"> {{item.language}}</div>
+    <div fxFlex="45">{{getLanguageLabel(item.level)}}</div>
+    <div fxFlex="10">
+      <button mat-icon-button
+        (click)="remove(item)"
+        class="user-languages--action-button"
+        color="warn"
+        aria-label="remove language button">
+        <mat-icon class="material-icons-two-tone">cancel</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div fxLayout="row"
+    fxLayoutGap="16px grid">
+    <mat-form-field fxFlex="45"
+      appearance="outline">
+      <mat-label>
+        Language
+      </mat-label>
+      <input matInput
+        #languageInput>
+    </mat-form-field>
+    <mat-form-field fxFlex="45"
+      appearance="outline"
+      style="display: block">
+      <mat-label>Level</mat-label>
+      <mat-select #levelInput>
+        <mat-option value="1">Elementary</mat-option>
+        <mat-option value="2">Limited working</mat-option>
+        <mat-option value="3">Professional working</mat-option>
+        <mat-option value="4">Full professional</mat-option>
+        <mat-option value="5">Native or bilingual</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div fxFlex="10">
+      <button mat-mini-fab
+        color="primary"
+        [disabled]="!languageInput.value || !levelInput.value"
+        (click)="addLanguage(languageInput.value, levelInput.value); languageInput.value='';levelInput.value=''">
+        <mat-icon class="material-icons-two-tone">add</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

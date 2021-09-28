@@ -1,0 +1,21 @@
+.auth {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+app-signin {
+  max-width: 90%;
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 839px) {
+  h1 {
+    font-size: 1.4em;
+  }
+  p {
+    font-size: 0.8em;
+  }
+}

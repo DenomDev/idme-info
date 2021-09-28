@@ -1,0 +1,75 @@
+.idme-dialog {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &--header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #999;
+    &-title {
+      margin: 0;
+    }
+    &-button {
+      position: absolute;
+      left: -13px;
+      top: -7px;
+    }
+  }
+  &--content {
+    flex: 1 1 auto;
+  }
+  .mat-divider {
+    margin: 2em 0;
+  }
+  &--form {
+    &-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      &.nowrap {
+        flex-wrap: nowrap !important;
+      }
+    }
+    .mat-form-field {
+      flex: 1 1 auto;
+      padding: 4px;
+    }
+    &-type {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      border: none;
+    }
+    .mat-chip-list-wrapper {
+      flex-direction: column !important;
+      align-items: start;
+    }
+    .mat-chip {
+      word-break: break-word !important;
+    }
+  }
+}
+::ng-deep {
+  .mat-button-toggle-checked {
+    background-color: var(--accent-color);
+    color: white !important;
+    border-radius: 2px;
+  }
+  .mat-slide-toggle {
+    margin: auto;
+    &.mat-checked {
+      .mat-slide-toggle-thumb,
+      .mat-slide-toggle-bar {
+        background-color: var(--accent-color);
+      }
+    }
+  }
+  .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 30px;
+    padding: 0 12px;
+  }
+}

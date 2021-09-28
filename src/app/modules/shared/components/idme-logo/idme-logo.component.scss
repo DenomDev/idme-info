@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap');
+
+.idme-logo {
+  font-family: 'Quantico', sans-serif;
+  font-size: 48px;
+  letter-spacing: -4px;
+  width: 40px;
+  &--i {
+    display: inline;
+  }
+  &--d {
+    display: inline;
+  }
+}

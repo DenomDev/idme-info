@@ -1,0 +1,109 @@
+<ng-container *ngIf="certifications;">
+  <ng-container *ngIf="certifications.length>0;  ">
+
+    <h4 class="mat-title">Certifications</h4>
+    <div class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-ed fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of certifications"
+        [obj]="item"></app-one-ed>
+    </div>
+    <mat-divider></mat-divider>
+  </ng-container>
+
+</ng-container>
+
+<ng-container *ngIf="doctors;">
+  <ng-container *ngIf="doctors.length>0;  ">
+    <h4 class="mat-title">Ph. D.</h4>
+    <div *ngIf="doctors.length>0;  "
+      class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-ed fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of doctors"
+        [obj]="item"></app-one-ed>
+    </div>
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>
+
+
+<ng-container *ngIf="masters;">
+  <ng-container *ngIf="masters.length>0;  ">
+    <h4 class="mat-title">Master(s)</h4>
+    <div *ngIf="masters.length>0;  "
+      class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-ed fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of masters"
+        [obj]="item"></app-one-ed>
+    </div>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="bachelors;">
+  <ng-container *ngIf="bachelors.length>0;  ">
+    <h4 class="mat-title">Bachelor(s)</h4>
+    <div *ngIf="bachelors.length>0;  "
+      class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-ed fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of bachelors"
+        [obj]="item"></app-one-ed>
+    </div>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>
+
+
+<ng-container *ngIf="highSchools;">
+  <ng-container *ngIf="highSchools.length>0;  ">
+    <h4 class="mat-title">High School(s)</h4>
+    <div *ngIf="highSchools.length>0;  "
+      class="xp-grid"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="start start"
+      fxLayoutAlign.lt-md="center stretch">
+      <app-one-ed fxFlex.lt-md="100"
+        fxFlex.md="50"
+        fxFlex.lg="33.33"
+        fxFlex.xl="25"
+        *ngFor="let item of highSchools"
+        [obj]="item"></app-one-ed>
+    </div>
+    <mat-divider></mat-divider>
+  </ng-container>
+</ng-container>

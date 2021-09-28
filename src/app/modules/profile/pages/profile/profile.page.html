@@ -1,0 +1,23 @@
+<div class="profile"
+  [ngClass.lt-md]="{'is-phone': true, 'is-tablet': false, 'is-desktop': false,'is-xl': false}"
+  [ngClass.md]="{'is-phone': false, 'is-tablet': true, 'is-desktop': false,'is-xl': false}"
+  [ngClass.lg]="{'is-phone': false, 'is-tablet': false, 'is-desktop': true,'is-xl': false}"
+  [ngClass.xl]="{'is-phone': false, 'is-tablet': false, 'is-desktop': false,'is-xl': true}">
+  <app-nav></app-nav>
+  <nav mat-tab-nav-bar
+    mat-align-tabs="end">
+    <a mat-tab-link
+      *ngFor="let item of tabLinks;let i=index"
+      (click)="activeLink = item"
+      [routerLink]="item.path"
+      routerLinkActive
+      #rla="routerLinkActive">
+      <mat-icon fxShow.lt-md
+        fxHide
+        fxHideclass="example-tab-icon">{{item.icon}}</mat-icon> <span fxShow
+        fxHide.lt-md>{{item.name}}</span>
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+
+</div>
